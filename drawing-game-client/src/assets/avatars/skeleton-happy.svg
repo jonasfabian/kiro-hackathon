@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Happy Skeleton -->
+  <!-- Skull -->
+  <rect x="20" y="16" width="24" height="24" fill="#FFFFFF" rx="4"/>
+  <rect x="16" y="20" width="32" height="16" fill="#FFFFFF"/>
+  <!-- Eyes -->
+  <rect x="24" y="22" width="6" height="8" fill="#000000" rx="2"/>
+  <rect x="34" y="22" width="6" height="8" fill="#000000" rx="2"/>
+  <!-- Nose -->
+  <rect x="30" y="30" width="4" height="4" fill="#000000"/>
+  <!-- Teeth smile -->
+  <rect x="24" y="36" width="3" height="4" fill="#000000"/>
+  <rect x="28" y="36" width="3" height="4" fill="#000000"/>
+  <rect x="32" y="36" width="3" height="4" fill="#000000"/>
+  <rect x="36" y="36" width="3" height="4" fill="#000000"/>
+  <!-- Body -->
+  <rect x="26" y="40" width="12" height="12" fill="#FFFFFF" rx="2"/>
+  <!-- Arms -->
+  <rect x="18" y="42" width="8" height="4" fill="#FFFFFF"/>
+  <rect x="38" y="42" width="8" height="4" fill="#FFFFFF"/>
+  <!-- Bow tie -->
+  <rect x="28" y="40" width="8" height="4" fill="#FF8C00"/>
+</svg>

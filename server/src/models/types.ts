@@ -6,6 +6,7 @@ export interface Player {
   connectionId: string;
   score: number;
   isConnected: boolean;
+  avatar: string;
 }
 
 export interface Point {

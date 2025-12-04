@@ -2,6 +2,7 @@ import WebSocket from 'ws';
 import { Server as HTTPServer } from 'http';
 import { GameRoomManager } from '../services/GameRoomManager';
 import { GameConfig, Player, GameMessage, ClientMessage } from '../models/types';
+import { AvatarService } from '../services/AvatarService';
 import { v4 as uuidv4 } from 'uuid';
 
 interface ConnectionInfo {
@@ -144,7 +145,8 @@ export class WebSocketServer {
       name: playerName,
       connectionId,
       score: 0,
-      isConnected: true
+      isConnected: true,
+      avatar: AvatarService.assignRandomAvatar()
     };
 
     room.addPlayer(player);

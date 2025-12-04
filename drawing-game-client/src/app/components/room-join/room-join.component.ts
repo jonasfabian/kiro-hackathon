@@ -19,15 +19,24 @@ export class RoomJoinComponent {
     private wsService: WebSocketService,
     private router: Router
   ) {
+    // Try to restore previous session data
+    const savedRoomId = localStorage.getItem('roomId') || '';
+    const savedPlayerName = localStorage.getItem('playerName') || '';
+    
     this.joinForm = this.fb.group({
-      roomId: ['', [Validators.required, Validators.minLength(1)]],
-      playerName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(20)]]
+      roomId: [savedRoomId, [Validators.required, Validators.minLength(1)]],
+      playerName: [savedPlayerName, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]]
     });
   }
 
   onSubmit(): void {
     if (this.joinForm.valid) {
       const { roomId, playerName } = this.joinForm.value;
+      
+      // Save to localStorage for persistence
+      localStorage.setItem('roomId', roomId);
+      localStorage.setItem('playerName', playerName);
+      
       this.wsService.connect(roomId, playerName);
       this.router.navigate(['/game', roomId]);
     }

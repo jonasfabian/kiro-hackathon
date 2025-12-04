@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halloween Avatar Collection</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: rgba(255,255,255,0.9);
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .avatar-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .avatar-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    .avatar-image {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      border-radius: 50%;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .avatar-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .avatar-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 5px;
+    }
+    
+    .avatar-type {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    .info-box {
+      background: rgba(255,255,255,0.95);
+      border-radius: 15px;
+      padding: 30px;
+      margin-top: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .info-box h2 {
+      color: #5D3FD3;
+      margin-bottom: 15px;
+    }
+    
+    .info-box ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    
+    .info-box li {
+      padding: 8px 0;
+      color: #555;
+    }
+    
+    .info-box li:before {
+      content: "🎃 ";
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎃 Halloween Avatar Collection 👻</h1>
+    <p class="subtitle">Cute & Spooky Characters for Your Drawing Game</p>
+    
+    <div class="avatar-grid">
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="skeleton-happy.svg" alt="Happy Skeleton">
+        </div>
+        <div class="avatar-name">Happy Skeleton</div>
+        <div class="avatar-type">Cheerful & Dapper</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="pumpkin-spooky.svg" alt="Spooky Pumpkin">
+        </div>
+        <div class="avatar-name">Spooky Pumpkin</div>
+        <div class="avatar-type">Angry Jack-o'-Lantern</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="pumpkin-happy.svg" alt="Happy Pumpkin">
+        </div>
+        <div class="avatar-name">Happy Pumpkin</div>
+        <div class="avatar-type">Friendly & Smiling</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="spider-cute.svg" alt="Cute Spider">
+        </div>
+        <div class="avatar-name">Cute Spider</div>
+        <div class="avatar-type">Adorable Arachnid</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="ghost-shy.svg" alt="Shy Ghost">
+        </div>
+        <div class="avatar-name">Shy Ghost</div>
+        <div class="avatar-type">Bashful Spirit</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="ghost-cute.svg" alt="Cute Ghost">
+        </div>
+        <div class="avatar-name">Cute Ghost</div>
+        <div class="avatar-type">Happy Phantom</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="vampire-cute.svg" alt="Cute Vampire">
+        </div>
+        <div class="avatar-name">Cute Vampire</div>
+        <div class="avatar-type">Friendly Fangs</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="mummy-wrapped.svg" alt="Mummy">
+        </div>
+        <div class="avatar-name">Mummy</div>
+        <div class="avatar-type">Wrapped Wonder</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="bat-flying.svg" alt="Flying Bat">
+        </div>
+        <div class="avatar-name">Flying Bat</div>
+        <div class="avatar-type">Night Flyer</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="candy-corn.svg" alt="Candy Corn">
+        </div>
+        <div class="avatar-name">Candy Corn</div>
+        <div class="avatar-type">Sweet Treat</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="witch-hat.svg" alt="Witch">
+        </div>
+        <div class="avatar-name">Witch</div>
+        <div class="avatar-type">Magical Spellcaster</div>
+      </div>
+      
+      <div class="avatar-card">
+        <div class="avatar-image">
+          <img src="cat-black.svg" alt="Black Cat">
+        </div>
+        <div class="avatar-name">Black Cat</div>
+        <div class="avatar-type">Mysterious Feline</div>
+      </div>
+    </div>
+    
+    <div class="info-box">
+      <h2>About These Avatars</h2>
+      <ul>
+        <li><strong>Format:</strong> SVG (Scalable Vector Graphics) - Perfect for any screen size</li>
+        <li><strong>Size:</strong> 64x64 pixels optimized, scales beautifully</li>
+        <li><strong>Style:</strong> Pixel-art inspired with clean, readable designs</li>
+        <li><strong>Colors:</strong> Dark violet (#5D3FD3), Orange (#FF8C00), Black, and complementary colors</li>
+        <li><strong>Usage:</strong> Randomly assigned to players when they join the game</li>
+        <li><strong>Total:</strong> 12 unique characters for variety</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

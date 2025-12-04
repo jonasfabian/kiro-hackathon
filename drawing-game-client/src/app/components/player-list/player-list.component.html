@@ -1,12 +1,10 @@
-<div class="h-full bg-white rounded-xl shadow-lg p-4 flex flex-col">
+<div class="h-full bg-[#1a0b2e] rounded-xl shadow-lg p-4 flex flex-col border-2 border-[#5D3FD3]">
   <div class="flex items-center justify-between mb-4">
-    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
-      <svg class="w-5 h-5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
+    <h3 class="text-lg font-bold text-[#FFD700] flex items-center gap-2">
+      <span class="text-xl">👻</span>
       Players
     </h3>
-    <span class="px-2 py-1 bg-indigo-100 text-indigo-700 text-sm font-semibold rounded-lg">
+    <span class="px-2 py-1 bg-[#FF8C00] text-white text-sm font-semibold rounded-lg">
       {{ players.length }}
     </span>
   </div>
@@ -16,32 +14,31 @@
       *ngFor="let player of players"
       class="flex items-center justify-between p-3 rounded-lg transition-all"
       [class.bg-gradient-to-r]="player.id === drawerId"
-      [class.from-indigo-50]="player.id === drawerId"
-      [class.to-purple-50]="player.id === drawerId"
+      [class.from-[#5D3FD3]]="player.id === drawerId"
+      [class.to-[#7B2CBF]]="player.id === drawerId"
       [class.border-2]="player.id === drawerId"
-      [class.border-indigo-300]="player.id === drawerId"
-      [class.bg-slate-50]="player.id !== drawerId"
+      [class.border-[#FFD700]]="player.id === drawerId"
+      [class.bg-[#2d1b4e]]="player.id !== drawerId"
     >
       <div class="flex items-center gap-3">
-        <div class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold"
-             [class.bg-gradient-to-br]="player.id === drawerId"
-             [class.from-indigo-500]="player.id === drawerId"
-             [class.to-purple-600]="player.id === drawerId"
-             [class.text-white]="player.id === drawerId"
-             [class.bg-slate-200]="player.id !== drawerId"
-             [class.text-slate-600]="player.id !== drawerId">
-          {{ player.name.charAt(0).toUpperCase() }}
+        <div class="w-10 h-10 rounded-full flex items-center justify-center overflow-hidden bg-white"
+             [class.ring-2]="player.id === drawerId"
+             [class.ring-[#FFD700]]="player.id === drawerId"
+             [class.ring-offset-2]="player.id === drawerId"
+             [class.ring-offset-[#5D3FD3]]="player.id === drawerId">
+          <img [src]="'assets/avatars/' + player.avatar" 
+               [alt]="player.name + ' avatar'"
+               class="w-full h-full object-contain" />
         </div>
-        <span class="font-medium text-slate-800"
-              [class.font-bold]="player.id === drawerId">
+        <span class="font-medium text-white"
+              [class.font-bold]="player.id === drawerId"
+              [class.text-[#FFD700]]="player.id === drawerId">
           {{ player.name }}
         </span>
       </div>
-      <div *ngIf="player.id === drawerId" class="flex items-center gap-1 px-2 py-1 bg-white rounded-lg shadow-sm">
-        <svg class="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-        </svg>
-        <span class="text-xs font-semibold text-indigo-600">Drawing</span>
+      <div *ngIf="player.id === drawerId" class="flex items-center gap-1 px-2 py-1 bg-[#FF8C00] rounded-lg shadow-sm">
+        <span class="text-lg">🎨</span>
+        <span class="text-xs font-semibold text-white">Drawing</span>
       </div>
     </div>
   </div>

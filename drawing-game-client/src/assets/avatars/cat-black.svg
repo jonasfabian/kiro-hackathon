@@ -1,0 +1,23 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Black Cat -->
+  <!-- Ears -->
+  <rect x="16" y="16" width="8" height="12" fill="#000000"/>
+  <rect x="14" y="14" width="4" height="8" fill="#000000"/>
+  <rect x="40" y="16" width="8" height="12" fill="#000000"/>
+  <rect x="46" y="14" width="4" height="8" fill="#000000"/>
+  <!-- Head -->
+  <rect x="18" y="24" width="28" height="24" fill="#000000" rx="4"/>
+  <!-- Inner ears -->
+  <rect x="18" y="18" width="4" height="6" fill="#FF8C00"/>
+  <rect x="42" y="18" width="4" height="6" fill="#FF8C00"/>
+  <!-- Eyes -->
+  <rect x="24" y="32" width="4" height="8" fill="#FFD700"/>
+  <rect x="36" y="32" width="4" height="8" fill="#FFD700"/>
+  <rect x="25" y="34" width="2" height="4" fill="#000000"/>
+  <rect x="37" y="34" width="2" height="4" fill="#000000"/>
+  <!-- Nose -->
+  <rect x="30" y="40" width="4" height="3" fill="#FF8C00"/>
+  <!-- Whiskers -->
+  <rect x="10" y="38" width="8" height="2" fill="#FFFFFF"/>
+  <rect x="46" y="38" width="8" height="2" fill="#FFFFFF"/>
+</svg>

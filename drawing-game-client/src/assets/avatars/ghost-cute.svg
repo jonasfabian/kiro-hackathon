@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cute Ghost -->
+  <rect x="16" y="16" width="32" height="8" fill="#FFFFFF" rx="4"/>
+  <rect x="12" y="20" width="40" height="28" fill="#FFFFFF"/>
+  <!-- Wavy bottom -->
+  <rect x="12" y="48" width="8" height="8" fill="#FFFFFF"/>
+  <rect x="24" y="48" width="8" height="8" fill="#FFFFFF"/>
+  <rect x="36" y="48" width="8" height="8" fill="#FFFFFF"/>
+  <rect x="48" y="48" width="4" height="8" fill="#FFFFFF"/>
+  <!-- Eyes -->
+  <rect x="20" y="28" width="6" height="6" fill="#5D3FD3"/>
+  <rect x="38" y="28" width="6" height="6" fill="#5D3FD3"/>
+  <!-- Blush -->
+  <rect x="16" y="38" width="8" height="4" fill="#FFB6C1"/>
+  <rect x="40" y="38" width="8" height="4" fill="#FFB6C1"/>
+  <!-- Mouth -->
+  <rect x="28" y="38" width="8" height="4" fill="#5D3FD3" rx="2"/>
+</svg>

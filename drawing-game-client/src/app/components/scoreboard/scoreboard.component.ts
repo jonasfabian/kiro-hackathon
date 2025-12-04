@@ -6,6 +6,7 @@ interface PlayerScore {
   playerId: string;
   playerName: string;
   score: number;
+  avatar: string;
 }
 
 @Component({
@@ -29,7 +30,8 @@ export class ScoreboardComponent implements OnChanges {
     this.playerScores = this.players.map(player => ({
       playerId: player.id,
       playerName: player.name,
-      score: this.scores[player.id] || 0
+      score: this.scores[player.id] || 0,
+      avatar: player.avatar
     })).sort((a, b) => b.score - a.score);
   }
 }

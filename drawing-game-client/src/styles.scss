@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Halloween Theme Colors */
+:root {
+  --halloween-dark: #1a0b2e;
+  --halloween-purple: #5D3FD3;
+  --halloween-violet: #7B2CBF;
+  --halloween-orange: #FF8C00;
+  --halloween-orange-light: #FFA500;
+  --halloween-yellow: #FFD700;
+  --halloween-black: #0f0617;
+  --halloween-gray: #2d1b4e;
+}
+
 @layer base {
   * {
     @apply box-border;
@@ -10,6 +22,7 @@
   body {
     @apply m-0 antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, var(--halloween-black) 0%, var(--halloween-dark) 50%, var(--halloween-gray) 100%);
   }
 
   html, body {

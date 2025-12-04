@@ -58,10 +58,30 @@ export class GameComponent implements OnInit, OnDestroy {
       this.handleMessage(message);
     });
     this.subscriptions.push(messageSub);
+
+    // Auto-reconnect if not connected (e.g., after page refresh)
+    if (!this.wsService.isConnected()) {
+      const savedRoomId = localStorage.getItem('roomId');
+      const savedPlayerName = localStorage.getItem('playerName');
+      
+      if (savedRoomId && savedPlayerName && this.roomId === savedRoomId) {
+        console.log('Auto-reconnecting to room:', savedRoomId);
+        this.wsService.connect(savedRoomId, savedPlayerName);
+      }
+    }
   }
 
   ngOnDestroy(): void {
     this.subscriptions.forEach(sub => sub.unsubscribe());
+    // Note: We keep localStorage data so user can refresh
+    // To clear session, user should explicitly leave the game
+  }
+
+  leaveGame(): void {
+    // Clear session data
+    localStorage.removeItem('roomId');
+    localStorage.removeItem('playerName');
+    this.wsService.disconnect();
   }
 
   private handleMessage(message: GameMessage): void {
