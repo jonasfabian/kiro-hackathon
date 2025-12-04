@@ -1,4 +1,4 @@
-<div class="bg-white rounded-xl shadow-lg p-4">
+<div class="bg-[#1a0b2e] rounded-xl shadow-lg p-4 border-2 border-[#5D3FD3]">
   <form (ngSubmit)="onSubmit()" class="flex gap-2">
     <input
       type="text"
@@ -7,17 +7,15 @@
       placeholder="{{ isDrawer ? '🎨 You are drawing!' : '💭 Type your guess...' }}"
       [disabled]="isDrawer"
       autocomplete="off"
-      class="flex-1 px-4 py-3 bg-slate-50 border-2 border-slate-200 rounded-lg focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100 transition-all outline-none disabled:bg-slate-100 disabled:cursor-not-allowed"
+      class="flex-1 px-4 py-3 bg-[#2d1b4e] border-2 border-[#5D3FD3] text-white rounded-lg focus:border-[#FFD700] focus:ring-4 focus:ring-[#FFD700]/20 transition-all outline-none disabled:bg-[#2d1b4e]/50 disabled:cursor-not-allowed placeholder-[#FFA500]/50"
     />
     <button 
       type="submit" 
       [disabled]="isDrawer || !guessText.trim()"
-      class="px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center gap-2"
+      class="w-12 h-12 bg-gradient-to-r from-[#FF8C00] to-[#FFA500] text-white font-semibold rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center flex-shrink-0"
+      title="Send guess"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span>Send</span>
+      <span class="text-xl">📤</span>
     </button>
   </form>
 </div>
