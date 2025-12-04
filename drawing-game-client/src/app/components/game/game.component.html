@@ -1,0 +1,94 @@
+<div class="h-screen flex flex-col bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden">
+  <!-- Connection Status -->
+  <div *ngIf="(connectionStatus$ | async) !== 'connected'" 
+       class="fixed top-4 right-4 z-50 px-4 py-2 bg-amber-500 text-white rounded-lg shadow-lg flex items-center space-x-2 animate-pulse">
+    <svg class="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+    </svg>
+    <span *ngIf="(connectionStatus$ | async) === 'connecting'">Connecting...</span>
+    <span *ngIf="(connectionStatus$ | async) === 'disconnected'">Reconnecting...</span>
+  </div>
+
+  <!-- Header -->
+  <div class="bg-white border-b border-slate-200 px-6 py-4 flex-shrink-0">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-slate-800">Drawing Game</h1>
+          <p class="text-sm text-slate-500">Room: <span class="font-semibold text-indigo-600">{{ roomId }}</span></p>
+        </div>
+      </div>
+      <div *ngIf="(roundNumber$ | async) as roundNumber" 
+           class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white rounded-lg font-semibold shadow-md">
+        Round {{ roundNumber }}
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 flex gap-4 p-4 overflow-hidden">
+    <!-- Left Sidebar -->
+    <div class="w-64 flex flex-col gap-4 flex-shrink-0">
+      <app-player-list
+        [players]="(players$ | async) || []"
+        [drawerId]="(drawerId$ | async)"
+      ></app-player-list>
+      
+      <app-scoreboard
+        [players]="(players$ | async) || []"
+        [scores]="(scores$ | async) || {}"
+      ></app-scoreboard>
+    </div>
+
+    <!-- Center Area -->
+    <div class="flex-1 flex flex-col gap-4 min-w-0">
+      <!-- Timer & Prompt -->
+      <div class="flex gap-4 flex-shrink-0">
+        <app-timer [timeRemaining]="(timeRemaining$ | async) || 0"></app-timer>
+        
+        <div class="flex-1" *ngIf="(isDrawer$ | async)">
+          <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-4 flex items-center justify-center shadow-lg">
+            <div class="text-center">
+              <p class="text-white/80 text-sm font-medium mb-1">Your word:</p>
+              <p class="text-white text-2xl font-bold uppercase tracking-wider">{{ (currentPrompt$ | async) || '...' }}</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex-1" *ngIf="!(isDrawer$ | async)">
+          <div class="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl p-4 flex items-center justify-center shadow-lg">
+            <p class="text-white text-lg font-semibold">🤔 Guess what is being drawn!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canvas -->
+      <div class="flex-1 min-h-0">
+        <app-canvas
+          [isDrawer]="(isDrawer$ | async) || false"
+          (strokeDrawn)="onStrokeDrawn($event)"
+          (toolChanged)="onToolChanged($event)"
+          (canvasCleared)="onCanvasCleared()"
+        ></app-canvas>
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="w-80 flex flex-col gap-4 flex-shrink-0">
+      <div class="flex-1 min-h-0">
+        <app-guess-feed [guesses]="(guesses$ | async) || []"></app-guess-feed>
+      </div>
+      <div class="flex-shrink-0">
+        <app-guess-input
+          [isDrawer]="(isDrawer$ | async) || false"
+          (guessSubmitted)="onGuessSubmitted($event)"
+        ></app-guess-input>
+      </div>
+    </div>
+  </div>
+</div>

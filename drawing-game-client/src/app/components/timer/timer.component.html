@@ -1,0 +1,21 @@
+<div class="bg-white rounded-xl shadow-lg p-4 flex items-center justify-center transition-all"
+     [class.animate-pulse]="isLowTime"
+     [class.bg-gradient-to-r]="isLowTime"
+     [class.from-red-50]="isLowTime"
+     [class.to-pink-50]="isLowTime"
+     [class.border-2]="isLowTime"
+     [class.border-red-300]="isLowTime">
+  <div class="flex items-center gap-3">
+    <svg class="w-6 h-6 transition-colors"
+         [class.text-red-500]="isLowTime"
+         [class.text-slate-600]="!isLowTime"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <span class="text-3xl font-bold transition-colors"
+          [class.text-red-600]="isLowTime"
+          [class.text-slate-800]="!isLowTime">
+      {{ formattedTime }}
+    </span>
+  </div>
+</div>
