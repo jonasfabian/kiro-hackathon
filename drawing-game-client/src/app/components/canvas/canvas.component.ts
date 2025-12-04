@@ -22,7 +22,7 @@ export class CanvasComponent implements AfterViewInit {
   private lastPoint: Point | null = null;
   private currentPoints: Point[] = [];
 
-  currentColor = '#000000';
+  currentColor = '#FFFFFF';
   brushSize = 5;
 
   ngAfterViewInit(): void {
@@ -32,6 +32,10 @@ export class CanvasComponent implements AfterViewInit {
     // Set canvas size
     canvas.width = 800;
     canvas.height = 600;
+    
+    // Set dark background
+    this.ctx.fillStyle = '#1a0b2e';
+    this.ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Set initial canvas style
     this.ctx.lineCap = 'round';
@@ -91,9 +95,14 @@ export class CanvasComponent implements AfterViewInit {
   private getCanvasPoint(event: MouseEvent): Point {
     const canvas = this.canvasRef.nativeElement;
     const rect = canvas.getBoundingClientRect();
+    
+    // Calculate the scale factor between canvas size and display size
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    
     return {
-      x: event.clientX - rect.left,
-      y: event.clientY - rect.top
+      x: (event.clientX - rect.left) * scaleX,
+      y: (event.clientY - rect.top) * scaleY
     };
   }
 
@@ -128,7 +137,9 @@ export class CanvasComponent implements AfterViewInit {
 
   clear(): void {
     const canvas = this.canvasRef.nativeElement;
-    this.ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Clear and redraw dark background
+    this.ctx.fillStyle = '#1a0b2e';
+    this.ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   onClearCanvas(): void {
