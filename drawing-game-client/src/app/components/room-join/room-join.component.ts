@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { WebSocketService } from '../../services/websocket.service';
   templateUrl: './room-join.component.html',
   styleUrl: './room-join.component.scss'
 })
-export class RoomJoinComponent {
+export class RoomJoinComponent implements OnInit {
   joinForm: FormGroup;
 
   constructor(
@@ -22,11 +22,23 @@ export class RoomJoinComponent {
     // Try to restore previous session data
     const savedRoomId = localStorage.getItem('roomId') || '';
     const savedPlayerName = localStorage.getItem('playerName') || '';
-    
+
     this.joinForm = this.fb.group({
       roomId: [savedRoomId, [Validators.required, Validators.minLength(1)]],
       playerName: [savedPlayerName, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]]
     });
+  }
+
+  ngOnInit(): void {
+    // Auto-reconnect if session exists (e.g., after page refresh)
+    const savedRoomId = localStorage.getItem('roomId');
+    const savedPlayerName = localStorage.getItem('playerName');
+
+    if (savedRoomId && savedPlayerName) {
+      console.log('Session found, auto-reconnecting to room:', savedRoomId);
+      this.wsService.connect(savedRoomId, savedPlayerName);
+      this.router.navigate(['/game', savedRoomId]);
+    }
   }
 
   onSubmit(): void {

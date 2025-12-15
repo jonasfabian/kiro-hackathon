@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { WebSocketService } from '../../services/websocket.service';
 import { GameStateService } from '../../services/game-state.service';
@@ -43,6 +43,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private wsService: WebSocketService,
     public gameState: GameStateService
   ) {}
@@ -79,6 +80,8 @@ export class GameComponent implements OnInit, OnDestroy {
     localStorage.removeItem('roomId');
     localStorage.removeItem('playerName');
     this.wsService.disconnect();
+    this.gameState.reset();
+    this.router.navigate(['/']);
   }
 
   private handleMessage(message: GameMessage): void {
